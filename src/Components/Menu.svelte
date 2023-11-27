@@ -10,6 +10,8 @@
       .then((res) => {
         if (res.data === "success") {
           localStorage.removeItem("token");
+          localStorage.removeItem("user");
+          localStorage.removeItem("photo");
           token.set(false);
           push("/");
         }
@@ -22,12 +24,11 @@
         });
       });
   };
-  console.log($token);
 </script>
 
 <nav class="red">
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">CRUD Svelte-PHP</a>
+    <h5 class="brand-logo">CRUD Svelte-PHP</h5>
     {#if $token}
       <ul class="right hide-on-med-and-down">
         <li><a href="/home" use:link>Home</a></li>
